@@ -1,4 +1,4 @@
-const {basename, relative} = require('node:path');
+import { basename, relative } from 'node:path';
 
 //Gets a random choice based on the length of a array
 function pickOne(arr) {
