@@ -1,18 +1,25 @@
 import { basename, relative } from 'node:path';
 
+enum RPS {
+    ROCK = "rock",
+    PAPER = "paper",
+    SCISSORS = "scissors",
+}
 //Gets a random choice based on the length of a array
-function pickOne(arr) {
+function pickOne(arr: RPS[]): RPS {
     const choice = Math.floor(Math.random() * arr.length);
     return arr[choice];
 }
 
-const beatenBy = {
-    "rock": "paper",
-    "paper": "scissors",
-    "scissors": "rock",
+const beatenBy: {
+    [K in RPS]: RPS
+} = {
+    [RPS.ROCK]: RPS.PAPER,
+    [RPS.PAPER]: RPS.SCISSORS,
+    [RPS.SCISSORS]: RPS.ROCK,
 };
 
-function winner(userChoice, computerChoice) {
+function winner(userChoice: RPS, computerChoice: RPS) {
     if (userChoice === computerChoice) {
         return "It's a Tie!";
     } 
@@ -26,21 +33,23 @@ function winner(userChoice, computerChoice) {
     throw new Error("SOMETHING WENT WRONG PLEASE FIX IT");
 }
 
-function cleanup(str) {
-    if (typeof str === "string") {
-        return str.trim().toLowerCase();
+function cleanup(str: string): RPS | null {
+    if (typeof str !== "string" ) {
+        return null;
     }
-    return null;
+    const clean:string = str.trim().toLowerCase();
+    if (!Object.hasOwnProperty.call(beatenBy, clean)) {
+        return null;
+    }
+    return clean as RPS;
 }
 function main() {
-    const choices = Object.keys(beatenBy);
+    const choices = Object.keys(beatenBy) as RPS[];
     // Get the user's choice
     const userChoice = cleanup(process.argv[2]);
-    // Validates if user choice is accounted for
     if (Object.hasOwnProperty.call(beatenBy, userChoice)) {
-        const computerChoice = pickOne(choices); // Get the computer's choice
-        const result = winner(userChoice, computerChoice); // Get winner out of User and computer choises
-        // Prints things to the console
+        const computerChoice = pickOne(choices);
+        const result = winner(userChoice, computerChoice);
         console.log(`User chose "${userChoice}"`);
         console.log(`Computer chose "${computerChoice}"`);
         console.log("Result:", result);
