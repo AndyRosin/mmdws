@@ -5,7 +5,8 @@ enum RPS {
     PAPER = "paper",
     SCISSORS = "scissors",
     LIZARD = "lizard",
-    SPOCK = "spock"
+    SPOCK = "spock",
+    OLD_MAN = "chase",
 }
 //Gets a random choice based on the length of a array
 function pickOne(arr: RPS[]): RPS {
@@ -21,13 +22,16 @@ const beatenBy: {
     [RPS.SCISSORS]: new Set([RPS.ROCK, RPS.LIZARD]),
     [RPS.SPOCK]: new Set([RPS.ROCK, RPS.SCISSORS]),
     [RPS.LIZARD]: new Set([RPS.SPOCK, RPS.PAPER]),
-
+    [RPS.OLD_MAN]: new Set ([RPS.PAPER, RPS.LIZARD, RPS.ROCK, RPS.SCISSORS, RPS.SPOCK])
 };
 
 function winner(userChoice: RPS, computerChoice: RPS): string {
     if (userChoice === computerChoice) {
         return "It's a Tie!";
     } 
+    if(userChoice === RPS.OLD_MAN) {
+        return "HAHAHAHA OLD MAN, L + RATIO";
+    }
     if (beatenBy[userChoice].has (computerChoice)) {
         return "You lose. L";
     }
