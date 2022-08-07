@@ -4,18 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "rps": "tsc && node dist/rps/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AndyRosin/mmdws-Andy.git"
+    "url": "git+https://github.com/AndyRosin/mmdws.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AndyRosin/mmdws-Andy/issues"
+    "url": "https://github.com/AndyRosin/mmdws/issues"
   },
-  "homepage": "https://github.com/AndyRosin/mmdws-Andy#readme",
+  "homepage": "https://github.com/AndyRosin/mmdws#readme",
   "devDependencies": {
     "@types/node": "^18.6.4",
     "typescript": "^4.7.4"
