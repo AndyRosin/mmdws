@@ -1998,14 +1998,14 @@ const input = [109,117,
 ,6297
 ,6308
 ]
-let result = 0
+let result = 1
 for (let i = 0; i <input.length; i++) {
-    let current = input[i]
+    let current = input[i];
     let previous = input[i-1]
-    if (input[i] > input[i-1]) {
+    console.log(current)
+    if (current > previous) {
         result++
-        console.log(`CURRENT: ${current}, PREVIOUS: ${previous}, RESULT ${result}`);
     } else {
-        console.log(`CURRENT: ${current}, PREVIOUS: ${previous}, RESULT ${result}`)
+        console.log("NOTHING CHANGED I THINK")
     }
 }
