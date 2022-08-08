@@ -1,5 +1,4 @@
-const input = [109,117,
-,118
+const input = [109,117,118
 ,98
 ,102
 ,94
@@ -1997,16 +1996,27 @@ const input = [109,117,
 ,6293
 ,6297
 ,6308
-]
-let result = 1
-for (let i = 0; i <input.length; i++) {
-    let current = input[i];
-    let previous = input[i-1]
-    console.log(current)
-    if (current > previous) {
-        result++
-        console.log(`CURRENT: ${current}, PREVIOUS: ${previous}, RESULT ${result}`);
-    } else {
-        console.log(`CURRENT: ${current}, PREVIOUS: ${previous}, RESULT ${result}`);
+];
+// PART 1 SOLUTION
+function p1() {
+    let result = 0
+    for (let i = 1; i <input.length; i++) {
+        let current = input[i];
+        let previous = input[i-1];
+        if (current > previous) result++;
+        console.log(result)
     }
 }
+//p1();
+//PART 2
+function p2() {
+    let result = 0
+    let prev = 0
+    for (let i = 2; i < input.length; i += 1) {
+        const curr = input[i-2] + input[i-1] + input[i];
+        if (!!prev && curr > prev) result +=1;
+        prev = curr
+    }
+    console.log(result);
+};
+p2();
