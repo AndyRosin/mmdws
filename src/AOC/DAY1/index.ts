@@ -2005,7 +2005,8 @@ for (let i = 0; i <input.length; i++) {
     console.log(current)
     if (current > previous) {
         result++
+        console.log(`CURRENT: ${current}, PREVIOUS: ${previous}, RESULT ${result}`);
     } else {
-        console.log("NOTHING CHANGED I THINK")
+        console.log(`CURRENT: ${current}, PREVIOUS: ${previous}, RESULT ${result}`);
     }
 }
