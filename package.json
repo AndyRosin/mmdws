@@ -7,7 +7,8 @@
     "rps": "tsc && node dist/rps/index.js",
     "DAY1": "tsc && node dist/AOC/DAY1/index.js",
     "DAY2": "tsc && node dist/AOC/DAY2/index.js",
-    "DAY2p2": "tsc && node dist/AOC/DAY2/part2.js"
+    "DAY2p2": "tsc && node dist/AOC/DAY2/part2.js",
+    "DAY3": "tsc && node dist/AOC/DAY3/part1.js"
   },
   "repository": {
     "type": "git",
